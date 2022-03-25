@@ -138,18 +138,17 @@ class MainActivity : AppCompatActivity() {
 
     // Send a Post object to our Parse server
     fun submitPost(description: String, user: ParseUser, photoFile: File) {
+        // on some click or some loading we need to wait for...
+        val pb = findViewById<View>(R.id.pbLoading) as ProgressBar
+        pb.visibility = ProgressBar.VISIBLE
+
+
         // Create Post object
         val post = Post()
         post.setDescription(description)
         post.setImage(ParseFile(photoFile))
         post.setUser(user)
         post.saveInBackground { exception ->
-            // on some click or some loading we need to wait for...
-            val pb = findViewById<View>(R.id.pbLoading) as ProgressBar
-            pb.visibility = ProgressBar.VISIBLE
-// run a background job and once complete
-            pb.visibility = ProgressBar.INVISIBLE
-
             if(exception != null) {
                 //Something went wrong
                 Log.e(TAG, "Error while posting!")
@@ -166,6 +165,8 @@ class MainActivity : AppCompatActivity() {
                 // Reset the ImageView to empty
                 findViewById<ImageView>(R.id.imageView).setImageResource(android.R.color.transparent)
             }
+            //make progressbar invisible after processing task
+            pb.visibility = ProgressBar.INVISIBLE
         }
     }
 
