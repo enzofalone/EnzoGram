@@ -16,6 +16,9 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        // hide action bar
+        supportActionBar?.hide()
+
         //Check if there's a user logged in already
         //If true, begin MainActivity directly
         if(ParseUser.getCurrentUser() != null) {
@@ -50,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
                 goToMainActivity()
             } else {
                 //notify user
-                Toast.makeText(this,"Error login in!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Error logging in! Check fields", Toast.LENGTH_SHORT).show()
                 Log.i(TAG,"User Login failure!")
                 e.printStackTrace()
             }
