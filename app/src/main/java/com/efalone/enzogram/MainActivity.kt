@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.parse.ParseFile
 import com.parse.ParseQuery
 import com.parse.ParseUser
@@ -67,6 +68,27 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnTakePicture).setOnClickListener {
             // Launch camera so user can take a picture
             onLaunchCamera()
+        }
+
+        findViewById<BottomNavigationView>(R.id.bottom_navigation).setOnItemSelectedListener { item ->
+
+            when (item.itemId) {
+                R.id.actionHome -> {
+                    // TODO navigate to the home screen
+                    Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
+                }
+                R.id.actionCompose -> {
+                    // TODO navigate to the compose screen
+                    Toast.makeText(this, "Compose", Toast.LENGTH_SHORT).show()
+                }
+                R.id.actionProfile -> {
+                    // TODO navigate to the profile screen
+                    Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            //return true to say that we handled this user interaction
+            true
         }
 
 //        queryPosts()
