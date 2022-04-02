@@ -12,7 +12,7 @@ import com.codepath.apps.restclienttemplate.TimeFormatter
 import com.parse.ParseFile
 import com.parse.ParseUser
 
-class PostAdapter(val context: Context, val posts: List<Post>)
+class PostAdapter(val context: Context, val posts: MutableList<Post>)
     : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
 
@@ -68,4 +68,16 @@ class PostAdapter(val context: Context, val posts: List<Post>)
                 .into(ivProfile)
         }
     }
+
+    // Clean all elements of the recycler
+    fun clear() {
+        posts.clear()
+        notifyDataSetChanged()
+    }
+
+    fun addAll(postList: List<Post>) {
+        posts.addAll(postList)
+        notifyDataSetChanged()
+    }
 }
+

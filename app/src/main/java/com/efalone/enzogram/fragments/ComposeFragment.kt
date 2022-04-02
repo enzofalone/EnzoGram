@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
+import com.efalone.enzogram.LoginActivity
 import com.efalone.enzogram.MainActivity
 import com.efalone.enzogram.Post
 import com.efalone.enzogram.R
@@ -207,13 +208,13 @@ class ComposeFragment : Fragment() {
         }
     }
 
-//    fun goToLogin() {
-//        //create intent and start
-//        val intent = Intent(this@ComposeFragment, LoginActivity::class.java)
-//        startActivity(intent)
-//        //close this activity so user can't go back
-//        finish()
-//    }
+    fun goToLogin() {
+        //create intent and start
+        val intent = Intent(requireContext(), LoginActivity::class.java)
+        startActivity(intent)
+        //close this activity so user can't go back
+        activity?.finish()
+    }
 
     companion object {
         const val TAG = "ComposeFragment"

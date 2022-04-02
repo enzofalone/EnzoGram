@@ -20,13 +20,13 @@ object TimeFormatter {
         try {
             val diff = (System.currentTimeMillis() - format.parse(rawJsonDate).time) / 1000
             if (diff < 5) time = "Just now" else if (diff < 60) time =
-                String.format(Locale.ENGLISH, "%ds", diff) else if (diff < 60 * 60) time =
+                String.format(Locale.ENGLISH, "%d seconds ago", diff) else if (diff < 60 * 60) time =
                 String.format(
-                    Locale.ENGLISH, "%dm", diff / 60
+                    Locale.ENGLISH, "%d minutes ago", diff / 60
                 ) else if (diff < 60 * 60 * 24) time = String.format(
-                Locale.ENGLISH, "%dh", diff / (60 * 60)
+                Locale.ENGLISH, "%d hours ago", diff / (60 * 60)
             ) else if (diff < 60 * 60 * 24 * 30) time = String.format(
-                Locale.ENGLISH, "%dd", diff / (60 * 60 * 24)
+                Locale.ENGLISH, "%d days ago", diff / (60 * 60 * 24)
             ) else {
                 val now = Calendar.getInstance()
                 val then = Calendar.getInstance()

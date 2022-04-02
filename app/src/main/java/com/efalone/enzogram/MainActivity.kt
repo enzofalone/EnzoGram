@@ -23,6 +23,9 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
 
         val fragmentManager: FragmentManager = supportFragmentManager
+        val fragmentFeed = FeedFragment()
+        val fragmentCompose = ComposeFragment()
+        val fragmentProfile = ProfileFragment()
 
         findViewById<BottomNavigationView>(R.id.bottom_navigation).setOnItemSelectedListener { item ->
 
@@ -31,13 +34,13 @@ class MainActivity : AppCompatActivity() {
             //check which item was selected within the bottom nav view
             when (item.itemId) {
                 R.id.actionHome -> {
-                    fragmentToShow = FeedFragment()
+                    fragmentToShow = fragmentFeed
                 }
                 R.id.actionCompose -> {
-                    fragmentToShow = ComposeFragment()
+                    fragmentToShow = fragmentCompose
                 }
                 R.id.actionProfile -> {
-                    fragmentToShow = ProfileFragment()
+                    fragmentToShow = fragmentProfile
                 }
             }
 
