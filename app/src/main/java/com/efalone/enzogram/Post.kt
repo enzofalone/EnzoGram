@@ -25,6 +25,10 @@ class Post : ParseObject() {
         return getParseFile(KEY_IMAGE)
     }
 
+    fun getUserProfileImage(): ParseFile? {
+        return getUser()?.getParseFile("picture")
+    }
+
     fun setImage(parseFile: ParseFile) {
         put(KEY_IMAGE, parseFile)
     }

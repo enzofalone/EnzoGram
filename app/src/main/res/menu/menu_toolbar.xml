@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/miCompose"
+        android:icon="@drawable/ufi_heart_active"
+        app:showAsAction="ifRoom"
+        android:title="liked messages">
+    </item>
+    <item
+        android:id="@+id/miProfile"
+        android:icon="@drawable/nav_inbox_paper_plane"
+        app:showAsAction="ifRoom|withText"
+        android:title="Profile">
+    </item>
+</menu>
